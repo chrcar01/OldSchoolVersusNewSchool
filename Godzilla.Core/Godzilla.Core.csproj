@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountsRepository.cs" />
+    <Compile Include="ServiceRouters\ServiceRouter.cs" />
     <Compile Include="Services\AccountsService.cs" />
     <Compile Include="ServiceRouters\AccountServiceRouter.cs" />
   </ItemGroup>

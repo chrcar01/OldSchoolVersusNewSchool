@@ -27,10 +27,10 @@ namespace Godzilla.Shared.Services.Sap
 
         public Task<IEnumerable<Invoice>> GetAccountInvoicesAsync(string accountId)
         {
-            return _oldAccountsService.GetAccountInvoicesAsync(accountId);
-            //var result = new List<Invoice>();
-            //result.Add(new Invoice { AccountId = accountId, Id = "666", Name = "New School" });
-            //return Task.FromResult((IEnumerable<Invoice>) result);
+            //return _oldAccountsService.GetAccountInvoicesAsync(accountId);
+            var result = new List<Invoice>();
+            result.Add(new Invoice { AccountId = accountId, Id = "666", Name = "New School" });
+            return Task.FromResult((IEnumerable<Invoice>)result);
         }
     }
 }

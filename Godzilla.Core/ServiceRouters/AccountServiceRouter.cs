@@ -5,7 +5,7 @@ using GodZilla.Interfaces.Services;
 
 namespace Godzilla.Core.ServiceRouters
 {
-    public class AccountServiceRouter : IAccountsService
+    public class AccountServiceRouter : ServiceRouter<IAccountsService>, IAccountsService
     {
         private readonly IAccountsService _service1;
         private readonly IAccountsService _service2;
@@ -18,21 +18,12 @@ namespace Godzilla.Core.ServiceRouters
         
         public async Task<Account> GetAccountAsync(string accountId)
         {
-            if (accountId == "1225405")
-            {
-                return await _service1.GetAccountAsync(accountId);
-            }
-
-            return await _service2.GetAccountAsync(accountId);
+            return await Use(_service1, _service2, accountId).GetAccountAsync(accountId);
         }
 
         public Task<IEnumerable<Invoice>> GetAccountInvoicesAsync(string accountId)
         {
-            if (accountId == "1225405")
-            {
-                return _service1.GetAccountInvoicesAsync(accountId);
-            }
-            return _service2.GetAccountInvoicesAsync(accountId);
+            return Use(_service1, _service2, accountId).GetAccountInvoicesAsync(accountId);
         }
     }
 }
