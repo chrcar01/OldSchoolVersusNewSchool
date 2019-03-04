@@ -7,6 +7,13 @@ namespace Godzilla.Shared.Services.Sap
 {
     public class SapAccountsService : IAccountsService
     {
+        private readonly IAccountsService _oldAccountsService;
+        
+        public SapAccountsService(IAccountsService oldAccountsService)
+        {
+            _oldAccountsService = oldAccountsService;
+        }
+
         public Task<Account> GetAccountAsync(string accountId)
         {
             Account result = null;
@@ -20,9 +27,10 @@ namespace Godzilla.Shared.Services.Sap
 
         public Task<IEnumerable<Invoice>> GetAccountInvoicesAsync(string accountId)
         {
-            var result = new List<Invoice>();
-            result.Add(new Invoice { AccountId = accountId, Id = "666", Name = "New School" });
-            return Task.FromResult((IEnumerable<Invoice>) result);
+            return _oldAccountsService.GetAccountInvoicesAsync(accountId);
+            //var result = new List<Invoice>();
+            //result.Add(new Invoice { AccountId = accountId, Id = "666", Name = "New School" });
+            //return Task.FromResult((IEnumerable<Invoice>) result);
         }
     }
 }
