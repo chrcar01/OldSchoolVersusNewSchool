@@ -1,4 +1,5 @@
-﻿using GodZilla.Interfaces.Models.Accounts;
+﻿using System.Collections.Generic;
+using GodZilla.Interfaces.Models.Accounts;
 using GodZilla.Interfaces.Services;
 using System.Threading.Tasks;
 
@@ -11,10 +12,17 @@ namespace Godzilla.Shared.Services.Sap
             Account result = null;
             if (accountId == "1225095")
             {
-                result = new Account { Id = accountId };
+                result = new Account { Id = accountId, Name = "New School" };
             }
 
             return Task.FromResult(result);
+        }
+
+        public Task<IEnumerable<Invoice>> GetAccountInvoicesAsync(string accountId)
+        {
+            var result = new List<Invoice>();
+            result.Add(new Invoice { AccountId = accountId, Id = "666", Name = "New School" });
+            return Task.FromResult((IEnumerable<Invoice>) result);
         }
     }
 }

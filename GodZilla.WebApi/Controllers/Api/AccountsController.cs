@@ -18,5 +18,12 @@ namespace GodZilla.WebApi.Controllers.Api
             var result = await _service.GetAccountAsync(accountId);
             return result == null ? (IHttpActionResult) NotFound() : Ok(result);
         }
+
+        [Route("api/accounts/{accountId}/invoices"), HttpGet]
+        public async Task<IHttpActionResult> GetAccountInvoices(string accountId)
+        {
+            var result = await _service.GetAccountInvoicesAsync(accountId);
+            return result == null ? (IHttpActionResult) NotFound() : Ok(result);
+        }
     }
 }

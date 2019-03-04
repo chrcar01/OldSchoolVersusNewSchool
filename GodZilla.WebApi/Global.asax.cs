@@ -5,6 +5,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using Castle.MicroKernel.Registration;
 using Godzilla.Core.Repositories;
+using Godzilla.Core.ServiceRouters;
 using Godzilla.Core.Services;
 using Godzilla.Shared.Services.Sap;
 using GodZilla.Interfaces.Repositories;
@@ -25,9 +26,8 @@ namespace GodZilla.WebApi
             var dependencyResolver = new WindsorDependencyResolver(_container);
             GlobalConfiguration.Configuration.DependencyResolver = dependencyResolver;
             ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(_container.Kernel));
-            _container.Kernel.AddHandlerSelector(new SelectDependencyServiceHandlerSelector());
+            //_container.Kernel.AddHandlerSelector(new SelectDependencyServiceHandlerSelector());
 
-            AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         }
@@ -44,15 +44,25 @@ namespace GodZilla.WebApi
             container.Register(
                 Component
                     .For<IAccountsService>()
+                    .UsingFactoryMethod(c =>
+                        new AccountServiceRouter(
+                            c.Resolve<IAccountsService>("OldAccountsService"),
+                            c.Resolve<IAccountsService>("NewAccountsService")
+                        )
+                    ).LifestyleTransient());
+
+            container.Register(
+                Component
+                    .For<IAccountsService>()
                     .ImplementedBy<AccountsService>()
-                    .Named("AccountsService")
+                    .Named("OldAccountsService")
                     .LifestyleTransient());
 
             container.Register(
                 Component
                     .For<IAccountsService>()
                     .ImplementedBy<SapAccountsService>()
-                    .Named("SapAccountsService")
+                    .Named("NewAccountsService")
                     .LifestyleTransient());
 
             

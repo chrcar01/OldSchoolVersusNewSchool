@@ -1,6 +1,7 @@
 ﻿using GodZilla.Interfaces.Models.Accounts;
 using GodZilla.Interfaces.Repositories;
 using GodZilla.Interfaces.Services;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Godzilla.Core.Services
@@ -16,6 +17,11 @@ namespace Godzilla.Core.Services
         public Task<Account> GetAccountAsync(string accountId)
         {
             return _accountsRepository.GetAccountAsync(accountId);
+        }
+
+        public Task<IEnumerable<Invoice>> GetAccountInvoicesAsync(string accountId)
+        {
+            return _accountsRepository.GetAccountInvoicesAsync(accountId);
         }
     }
 }
