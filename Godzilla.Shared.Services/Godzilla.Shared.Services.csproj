@@ -54,13 +54,13 @@
     <Compile Include="Sap\SapAccountsService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\GodZilla.Interfaces\GodZilla.Interfaces.csproj">
-      <Project>{e113f974-26d2-4aa8-ae4c-0efad2a8e706}</Project>
-      <Name>GodZilla.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Godzilla.Core\Godzilla.Core.csproj">
       <Project>{e1b699ad-0501-4f5a-8273-2782873cd69e}</Project>
       <Name>Godzilla.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GodZilla.Interfaces\GodZilla.Interfaces.csproj">
+      <Project>{e113f974-26d2-4aa8-ae4c-0efad2a8e706}</Project>
+      <Name>GodZilla.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

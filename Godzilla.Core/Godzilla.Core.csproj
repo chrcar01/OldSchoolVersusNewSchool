@@ -57,13 +57,13 @@
     <Compile Include="ServiceRouters\AccountServiceRouter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\GodZilla.Interfaces\GodZilla.Interfaces.csproj">
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GodZilla.Interfaces\GodZilla.Interfaces.csproj">
       <Project>{e113f974-26d2-4aa8-ae4c-0efad2a8e706}</Project>
       <Name>GodZilla.Interfaces</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodZilla.WebApi", "GodZilla.WebApi\GodZilla.WebApi.csproj", "{DC1410C0-1205-4DBD-9C2B-8CFB47DC2C8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodZilla.Interfaces", "..\GodZilla.Interfaces\GodZilla.Interfaces.csproj", "{E113F974-26D2-4AA8-AE4C-0EFAD2A8E706}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodZilla.Interfaces", "GodZilla.Interfaces\GodZilla.Interfaces.csproj", "{E113F974-26D2-4AA8-AE4C-0EFAD2A8E706}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godzilla.Core", "Godzilla.Core\Godzilla.Core.csproj", "{E1B699AD-0501-4F5A-8273-2782873CD69E}"
 EndProject

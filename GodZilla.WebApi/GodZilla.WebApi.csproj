@@ -148,7 +148,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\GodZilla.Interfaces\GodZilla.Interfaces.csproj">
+    <ProjectReference Include="..\GodZilla.Interfaces\GodZilla.Interfaces.csproj">
       <Project>{e113f974-26d2-4aa8-ae4c-0efad2a8e706}</Project>
       <Name>GodZilla.Interfaces</Name>
     </ProjectReference>
